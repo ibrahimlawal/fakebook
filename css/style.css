@@ -1,0 +1,236 @@
+body{
+	font-family: "Century Gothic", Helvetica, Arial, sans-serif;
+	font-size: 11px;
+	margin:0;
+	padding:0;
+}
+
+#wrapper{
+}
+#links{
+	float:left;
+	width:150px;
+	font-size:1.1em;
+}
+.research-note .manage{
+	text-align: right;
+}
+.research-note .manage a{
+	text-decoration: none;
+}
+.research-note .manage a:hover{
+	text-decoration: underline;
+}
+
+.research-note{
+	border-bottom: 1px solid #ccc;
+	margin:5px;
+	padding:5px;
+	clear:both;
+}
+.research-note .description{
+	float:left;
+	font-size: 14px;
+}
+.research-note .time-updated{
+	float:right;
+}
+.message .manage{
+	text-align:right;
+}
+.fltlft{
+	float:left;
+}
+.profile .name{
+	float:left;
+}
+.sender span{
+	background: #ccc;
+	display: inline-block;
+	margin-right: 10px;
+	padding:3px;
+}
+#send-message, #add-friend, #view-notes{
+	float:right;
+	margin-top:10px;
+}
+#edit-profile{
+	float:right;
+	margin-top:10px;
+}
+#edit-profile-form input[type="submit"]{
+	float:right;
+	margin-top:10px;
+}
+#edit-profile-form select, #edit-profile-form textarea{
+	width:470px;
+	height:90px;
+}
+textarea.body{
+	width: 500px;
+	height:90px;
+}
+.message a{
+	text-decoration: none;
+	display:block;
+	
+}
+.message a:hover span.sender{
+	text-decoration: underline;
+}
+
+.message{
+	border-bottom: 1px solid #ccc;
+	margin:5px;
+	padding:5px;
+	clear:both;
+}
+.friend{
+	border-bottom: 1px solid #ccc;
+	margin:5px;
+	padding:5px;
+	clear:both;
+}
+.profile{
+	margin:5px;
+	padding:5px;
+	clear:both;
+}
+#omnibox{
+	width:500px;
+}
+.message .sender{
+	float:left;
+	font-size: 14px;
+}
+.message .sent{
+	float:right;
+	color:#000;
+}
+.friend .name{
+	float:left;
+	font-size: 14px;
+}
+.friend .manage{
+	float:right;
+	color:#000;
+}
+#content{
+	border-left:1px solid #ccc;
+	min-height: 300px;
+	float:left;
+	width: 540px;
+}
+.research-note .description{
+	float:left;
+	font-size: 14px;
+}
+.research-note .time-updated{
+	float:right;
+}
+#links ul{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	margin-top:20px;
+}
+
+#links ul li a{
+	text-decoration: none;
+	color:#3d3d3d;
+	display: block;
+	padding:3px;
+}
+#links ul li a:hover{
+	text-decoration: underline;
+	color:#2d2d2d;
+}
+#top-bar{
+	background: #333;
+	color:#fff;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.clear{
+	clear: both;
+}
+#register-area{
+	min-height:200px;
+	background: #ededed;
+	padding:20px;
+}
+#main-container{
+	min-height:200px;
+	background: #fff;
+}
+fieldset{
+	margin:10px;
+}
+#register-area form{
+	float:left;
+	width:380px;
+}
+#register-area label,#edit-profile-form label{
+	width:120px;
+	display: inline-block;
+}
+#research-note-form label{
+	width: 50px;
+	display: inline-block;
+}
+#research-note-form textarea{
+	width:480px;
+	height:120px;
+}
+#research-note-form input[type="text"]{
+	width:300px;
+}
+#register-area input[type="submit"]{
+	float:right;
+	width:100px;
+}
+legend, label{
+	font-weight:bold;
+}
+#register-area input[type="text"],#register-area input[type="password"],#edit-profile-form input[type="text"]{
+	width:200px;
+	display: inline-block;
+}
+#login-area input[type="text"],#login-area input[type="password"]{
+	width: 100px;
+}
+#lets-share{
+	margin-left:20px;
+	float:right;
+}
+#top-bar a{
+	color:#fff;
+	text-decoration: none;
+}
+#register-area, #forgot, #login-area {
+	text-align: right;
+}
+#login-area{
+	float:right;
+	width:400px;
+	text-align: right;
+}
+#logo{
+	float:left;
+}
+#footer{
+	text-align: right;
+}
+#footer .container{
+	margin-top:10px;
+	border-top: 1px solid #ccc;
+	padding-top:10px;
+}
+#top-bar a:hover{
+	text-decoration: underline;
+}
+.container{
+	width: 700px;
+	margin: 0 auto;
+
+}
