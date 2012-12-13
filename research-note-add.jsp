@@ -1,24 +1,25 @@
+<%-- Import required libraries since we will be using SQL on this page --%>
 <%@ page import ="java.sql.*" %>
 <%@ page import ="javax.sql.*" %>
-<% if (session.getAttribute("userid") == null) {
-			response.sendRedirect("index.jsp");
-		return;
+<% if (session.getAttribute("userid") == null) {			//test if the userid is set in the session
+			response.sendRedirect("index.jsp");				//redirect the user to index.jsp
+		return;												//stop executing commands
 	}
-Object userid			=session.getAttribute("userid"); 
-String title			=request.getParameter("title"); 
-String note				=request.getParameter("note"); 
-String add				=request.getParameter("add"); 
-boolean added=false;
+Object userid			=session.getAttribute("userid"); 	//pick userid from the session
+String title			=request.getParameter("title"); 	//pick title from the request
+String note				=request.getParameter("note"); 		//pick note from the request
+String add				=request.getParameter("add"); 		//pick note from the request
+boolean added=false;										//create a bolean variable and set it to false
 boolean submit=false;
-if(add != null){
+if(add != null){											//Test if the add button was clicked
 submit=true;
-if( (!title.equals("")) && (!note.equals("")) ){
-	Class.forName("com.mysql.jdbc.Driver"); 
-	java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/fakebook","fakeuser","fakepwd"); 
-	Statement st= con.createStatement(); 
-	st.execute("insert into note (user_id,title,body) values ('"+userid+"','"+title.trim()+"','"+note.trim()+"')"); 
-	// out.println("welcome "+email); 
-	added=true; 
+if( (!title.equals("")) && (!note.equals("")) ){			//check if all parameters are provided
+	Class.forName("com.mysql.jdbc.Driver"); 				//import the jdbc mysql driver
+	java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/fakebook","fakeuser","fakepwd"); 	//connect to the database
+	Statement st= con.createStatement(); 					//create a database statement object
+	st.execute("insert into note (user_id,title,body) values ('"+userid+"','"+title.trim()+"','"+note.trim()+"')"); //add new note to data base 
+	 
+	added=true;												//the note has been added 											
 }
 }
 %>

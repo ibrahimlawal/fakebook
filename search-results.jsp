@@ -1,18 +1,21 @@
+<%-- Import required libraries since we will be using SQL on this page --%>
 <%@ page import="java.io.*,java.util.*,java.sql.*"%>
 <%@ page import="javax.servlet.http.*,javax.servlet.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
-<% if (session.getAttribute("userid") == null) {
-			response.sendRedirect("index.jsp");
-		return;
+<% if (session.getAttribute("userid") == null) {		//test if the userid is set in the session
+			response.sendRedirect("index.jsp");			//redirect the user to index.jsp
+		return;											//stop executing commands
 	}
 String criteria		=request.getParameter("criteria"); 
 %>
 <jsp:include page="includes/header.jsp" />
-	<div id="main-container">											<!--The main area-->
+	    <div id="main-container">											<!--The main area-->
 		<div class="container">
+<%-- CREATE A PAGE-LEVEL QUERY TO SELECT POSSIBLE FRIENDS BASED ON THE CRITERIA CHOSEN BY THE USER --%>
 <sql:query var="rs" dataSource="jdbc/fakebook">
-<% if (criteria != null && criteria.equals("research_interest")){ %>
+<% 
+if (criteria != null && criteria.equals("research_interest")){ 			//test if the user selected reseach interest as search criteria %>
 SELECT id, CONCAT( profile.firstname,  ' ', profile.lastname ) as name
 FROM profile
 WHERE id NOT 
@@ -37,7 +40,7 @@ FROM user_research_interest
 WHERE user_id =<% out.println( session.getAttribute("userid") ); %>
 )
 )
-<% } else if (criteria != null && criteria.equals("subject")){ %>
+<% } else if (criteria != null && criteria.equals("subject")){ 		// test if the user chose subject as their search criteria %>
 SELECT id, CONCAT( profile.firstname,  ' ', profile.lastname ) as name
 FROM profile
 WHERE id NOT 
@@ -64,6 +67,8 @@ WHERE user_id =<% out.println( session.getAttribute("userid") ); %>
 )
 )
 <% 		} else { 
+
+// if we got here, the user either didnt select a criteria or selected both, set the criteria as "both" to be sure
 criteria="both";
 %>
 SELECT id, CONCAT( profile.firstname,  ' ', profile.lastname ) as name
@@ -130,10 +135,11 @@ WHERE user_id =<% out.println( session.getAttribute("userid") ); %>
 			</form>
 			</div>
 			</div>
+<%-- PRINT THE LIST OF POSSIBLE FRIENDS AS RETURNED BY THE QUERY ABOVE --%>
 <c:forEach var="row" items="${rs.rows}">
 			<div class="friend">
 				<div class="name">
-					${row.name}
+					${row.name}						<!-- print the friend name -->
 				</div>
 				<div class="manage">
 					<a href="add-friend.jsp?id=${row.id}" onclick="return confirm('Are you sure you want to add \'${row.name}\' as a friend?')">add</a>
